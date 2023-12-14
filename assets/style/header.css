@@ -1,0 +1,81 @@
+    /* 
+                - justify-content: space-around => 요소들 사이에 동일한 간격 적용
+    */
+    .header { display: flex; flex-direction: row;
+                /* 
+                 - justify-content
+                     * space-around : 요소 동일한 간격. 첫번째 요소, 마지막 요소 좌/우 간격 적용
+                     * space-between : 요소 동일한 간격. 첫번째 요소, 마지막 요소 각각 끝에 위치한 후 적용 
+                */ 
+                 justify-content: space-between;
+                 background-color: #212121;
+                 border-bottom: 1px solid #4d4d4d;
+                 /* border-bottom-width: 1px;
+                 border-bottom-style: solid;
+                 border-bottom-color: #4d4d4d; */
+                 position: fixed;
+                 top: 0;
+                 left: 0;
+                 right: 0;
+            }
+     .left-section { display: flex; }
+     /*
+         margin/padding 작성 방식에 따른 적용 범위
+          ex) padding: 1px 2px 3px 4px; => top right bottom left
+              Padding: 5px 10px; => top/bottom right/left
+              padding; 3px; => top/bottom/right/left 모두 적용
+     */
+     .hamburger-menu {height: 24px; padding: 21px 12px;}
+     .youtube-logo {height: 66px;}
+     /*
+         - border-radius : border부분을 둥글게 처리
+           ex) 20px 0px 0px 20px; => top-left top-right bottim-right bottom-left
+               20px 10px;         => top-left/bottm-right top-right/bottm-left
+               20px;              => 모두 (top-left/top-right/bottom-right/bottom-left)      
+     */        
+     .middle-section { display: flex; align-items: center;
+                       margin-left: 70px; margin-right: 35px;
+                        /*
+                         - flex: 1; => flex-grow: 1; flex-shrink: 1; flex-basis:0%; 
+                             - flex-grow: flex item 요소의 길이를 늘릴 수 있는 지에 대한 설정
+                                           (0: 기존크기 유지(default), 1+: 유동적으로 변경 가능)
+                             - flex-shrink: flex item 요소의 길이를 줄일 수 있는 지에 대한 설정
+                                             (0: 기존크기 유지, 1+: 설정한 비율로 줄어듦(default:1))
+                             - flex-basis: flex item 요소의 기본 크기. default:auto (컨텐츠 너비 기준)
+                                           * flex-direction 설정이 row일 때는 너비, column일 떄는 높이 기준
+                        */
+                       flex: 1;
+                       max-width: 500px;     /* 최대 너비*/
+                       min-width: 320px;     /* 최소 너비*/
+                     }
+     .search-bar { 
+                 height: 34px; border-radius: 20px 0px 0px 20px;
+                 background: #4d4d4d; border: 1px solid #212121;
+                 flex:1;
+                 padding-left: 20px;
+                 color: white;
+                 }
+     .search-button { height: 38px; width: 65px; border-radius: 0px 20px 20px 0px;
+                      background:#4d4d4d; border: 1px solid #212121;
+                      cursor: pointer;}
+     .search-icon { height: 25px;}
+     .tooltip {
+         position:absolute;
+         padding-left: 10px;
+         font-size: 16px;
+         color: white;   /* 글자 색 변경 */
+         bottom: -30px;
+         border-radius: 2px;
+
+         opacity: 0;         /* 불투명도 속성*/
+         transition: opacity 0.2s;   /* 애니메이션 관련 속성 */
+         pointer-events: none;   /* 마우스 포인터 이벤트에 대상이 되지 않음 */
+         background-color: #4d4d4d;
+     }
+     .search-button:hover .tooltip { opacity: 1; }
+     /*
+         - align-items : 세로축 정렬
+         - justify-content : 가로축 정렬
+     */
+     .right-section { width: 150px; display: flex; align-items: center; justify-content: center; }
+     .user-icon { height: 36px;}
